@@ -1,6 +1,6 @@
 {
-  "name": "toggle-ignored-files-display",
-  "displayName": "toggle ignored files display",
+  "name": "hide-gitignore-files",
+  "displayName": "hide gitignore files",
   "description": "",
   "version": "0.0.1",
   "engines": {
@@ -14,10 +14,17 @@
   "contributes": {
     "commands": [
       {
-        "command": "toggle-ignored-files-display.helloWorld",
-        "title": "Hello World"
+        "command": "hide-gitignore-files.toggle",
+        "title": "Hide Gitignore Files: Toggle"
       }
-    ]
+    ], 
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "hide-gitignore-files.toggle"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
@@ -25,17 +32,19 @@
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
     "lint": "eslint src --ext ts",
-    "test": "vscode-test"
+    "test": "vscode-test",
+    "generate": "vsce package"
   },
   "devDependencies": {
-    "@types/vscode": "^1.86.0",
     "@types/mocha": "^10.0.6",
     "@types/node": "18.x",
+    "@types/vscode": "^1.86.0",
     "@typescript-eslint/eslint-plugin": "^6.19.1",
     "@typescript-eslint/parser": "^6.19.1",
-    "eslint": "^8.56.0",
-    "typescript": "^5.3.3",
     "@vscode/test-cli": "^0.0.4",
-    "@vscode/test-electron": "^2.3.9"
+    "@vscode/test-electron": "^2.3.9",
+    "@vscode/vsce": "^2.23.0",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3"
   }
 }
